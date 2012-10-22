@@ -44,7 +44,8 @@ class ApiHandler(webapp2.RequestHandler):
         postBody = json.loads(self.request.body)
         newMessage = Message(author = postBody['author'], comment = postBody['comment'])
         newMessage.put()
-        self.response.out.write(json.dumps(newMessage.to_dict(), default=self.date_time_handler))
+        response = {'message': newMessage.to_dict()}
+        self.response.out.write(json.dumps(response, default=self.date_time_handler))
 
 app = webapp2.WSGIApplication([
     ('/api', ApiHandler),

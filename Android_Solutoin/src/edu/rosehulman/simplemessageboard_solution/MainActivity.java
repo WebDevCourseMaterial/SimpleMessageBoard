@@ -105,8 +105,9 @@ public class MainActivity extends Activity {
 			JSONObject replyJson = jsonNetworkClient.postJsonData(URL,
 					newMessage.toJson());
 			try {
-				reply = new Message(replyJson.getString("author"),
-						replyJson.getString("comment"));
+				JSONObject messageJson = replyJson.getJSONObject("message");
+				reply = new Message(messageJson.getString("author"),
+						messageJson.getString("comment"));
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
