@@ -12,6 +12,10 @@ public class Message {
 		mAuthor = author;
 		mComment = comment;
 	}
+	
+	public Message(JSONObject jsonObject) throws JSONException {
+		this(jsonObject.getString("author"), jsonObject.getString("comment"));
+	}
 
 	public String getAuthor() {
 		return mAuthor;
@@ -35,5 +39,15 @@ public class Message {
 			e.printStackTrace();
 		}
 		return jsonMessage;
+	}
+	
+	@Override
+	public boolean equals(Object other) {
+	    if (other == null) return false;
+	    if (other == this) return true;
+	    if (!(other instanceof Message)) return false;
+	    Message otherMessage = (Message) other;
+		return this.mAuthor.equals(otherMessage.mAuthor) &&
+				this.mComment.equals(otherMessage.mComment);
 	}
 }
