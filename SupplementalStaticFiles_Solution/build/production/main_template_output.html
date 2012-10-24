@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>Message Board</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/simplemb.css" />
+  <script type="text/javascript" src="js/simplemb.js"></script>
 </head>
 <body>
 	<h1>Leave a message</h1>
@@ -26,12 +28,26 @@
 	<hr>
 	<h1>Messages</h1>
 	<ol>
-	  {% for message in messages %}
 		<li>
-		  <b>{{message.author}}</b>
-		  <div style="margin-left: 12px;">{{message.comment}}</div>
+		  <b>Test author</b>
+		  <div style="margin-left: 12px;">Test comment</div>
 		</li>
-	  {% endfor %}
+		<li>
+		  <b>Test author</b>
+		  <div style="margin-left: 12px;">Test comment</div>
+		</li>
+		<li>
+		  <b>Test author</b>
+		  <div style="margin-left: 12px;">Test comment</div>
+		</li>
+		<li>
+		  <b>Test author</b>
+		  <div style="margin-left: 12px;">Test comment</div>
+		</li>
+		<li>
+		  <b>Test author</b>
+		  <div style="margin-left: 12px;">Test comment</div>
+		</li>
 	</ol>
 </body>
 </html>

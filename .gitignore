@@ -1,0 +1,5 @@
+.project
+.settings
+.pydevproject
+Android_Solution\bin
+AndroidWebView_Solution\bin

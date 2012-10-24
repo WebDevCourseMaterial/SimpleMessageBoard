@@ -68,8 +68,8 @@ public class MainActivity extends Activity {
 		protected ArrayList<Message> doInBackground(Void... params) {
 			ArrayList<Message> messagesList = new ArrayList<Message>();
 			try {
-				JsonNetworkClient jsonNetworkClient = new JsonNetworkClient();
-				JSONObject responseJson = jsonNetworkClient.getJsonData(URL);
+				JsonNetworkAdapter jsonNetworkAdapter = new JsonNetworkAdapter();
+				JSONObject responseJson = jsonNetworkAdapter.getJsonData(URL);
 				JSONArray messagesJson = responseJson.getJSONArray("messages");
 				// Create an ArrayList from the JSONArray.
 				for (int i = 0; i < messagesJson.length(); i++) {
@@ -101,8 +101,8 @@ public class MainActivity extends Activity {
 		protected Boolean doInBackground(Message... messages) {
 			Message reply = null;
 			Message newMessage = messages[0];
-			JsonNetworkClient jsonNetworkClient = new JsonNetworkClient();
-			JSONObject replyJson = jsonNetworkClient.postJsonData(URL,
+			JsonNetworkAdapter jsonNetworkAdapter = new JsonNetworkAdapter();
+			JSONObject replyJson = jsonNetworkAdapter.postJsonData(URL,
 					newMessage.toJson());
 			try {
 				JSONObject messageJson = replyJson.getJSONObject("message");

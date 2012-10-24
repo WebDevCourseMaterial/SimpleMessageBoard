@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Message Board</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/simplemb.css" />
+    <script type="text/javascript" src="../../../closure/closure-library/closure/goog/base.js"></script>
+    <script type="text/javascript">
+      goog.require('goog.events');
+      goog.require('goog.events.EventTarget');
+      goog.require('goog.debug.Logger');
+    </script>
+    <!-- Initially select the files to include using a direct method. -->
+    <script type="text/javascript" src="js/simplemb_controller.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <!-- Later (after setting up the deps.js file, use goog.require statements. -->
+    <!--     
+    <script type="text/javascript" src="build/deps.js"></script>
+    <script type="text/javascript">
+      goog.require('lightsout.main');
+    </script>
+       -->
+</head>
+<body>
+	<h1>Leave a message</h1>
+	<form action="" method="post">
+	  <table>
+		<tr>
+		  <td>Your name:</td>
+		  <td><input type="text" name="author"></td>
+		</tr>
+		<tr>
+		  <td>Comment:</td>
+		  <td><input type="text" name="comment"></td>
+		</tr>
+		<tr>
+		  <td></td>
+		  <td><input style="float: right;" type="submit" value="Submit"></td>
+		</tr>
+	  </table>
+	</form>
+	<hr>
+	<h1>Messages</h1>
+	<ol>
+		<li>
+		  <b>Test author</b>
+		  <div style="margin-left: 12px;">Test comment</div>
+		</li>
+		<li>
+		  <b>Test author</b>
+		  <div style="margin-left: 12px;">Test comment</div>
+		</li>
+		<li>
+		  <b>Test author</b>
+		  <div style="margin-left: 12px;">Test comment</div>
+		</li>
+		<li>
+		  <b>Test author</b>
+		  <div style="margin-left: 12px;">Test comment</div>
+		</li>
+		<li>
+		  <b>Test author</b>
+		  <div style="margin-left: 12px;">Test comment</div>
+		</li>
+	</ol>
+</body>
+</html>

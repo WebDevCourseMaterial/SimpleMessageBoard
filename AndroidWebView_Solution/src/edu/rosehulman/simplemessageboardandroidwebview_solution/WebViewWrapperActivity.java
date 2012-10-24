@@ -11,6 +11,7 @@ public class WebViewWrapperActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view_wrapper);
         WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.loadUrl("http://rose-simple-message-board.appspot.com");
     }
 }

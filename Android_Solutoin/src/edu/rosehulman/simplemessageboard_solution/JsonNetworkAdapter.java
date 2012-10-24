@@ -22,9 +22,9 @@ import android.util.Log;
  * @author Dave Fisher (fisherds@gmail.com)
  * @author Jimmy Theis (theis.jimmy@gmail.com)
  */
-public class JsonNetworkClient {
+public class JsonNetworkAdapter {
     
-	private static final String TAG = "JsonNetworkClient";
+	private static final String TAG = "JsonNetworkAdapter";
 	
 	/**
 	 * Performs a GET request to a URL.  Expects the backend to
