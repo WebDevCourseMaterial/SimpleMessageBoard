@@ -25,7 +25,7 @@ goog.require('goog.ui.LabelInput');
  * @constructor
  * @extends {goog.events.EventTarget}
  */
-simplemb.PostController = function(container, oauthIdentifier) {
+simplemb.PostController = function(container) {
   goog.base(this);
   
   /**
@@ -79,6 +79,14 @@ simplemb.PostController.EventType = {
 
 
 /**
+ * Key used for local storage for the author name.
+ * @type {string}
+ * @const
+ */
+simplemb.PostController.KEY_AUTHOR_NAME = 'author-name';
+
+
+/**
  * Logger for this class.
  * @type {goog.debug.Logger}
  */
@@ -93,8 +101,9 @@ simplemb.PostController.prototype.logger =
 simplemb.PostController.prototype.init_ = function() {
   
   //this.logger.info("Listeners before = " + goog.events.getTotalListenerCount());
+  var authorInputEl = goog.dom.getElement('author-input');
   this.authorLabelInput_ = new goog.ui.LabelInput;
-  this.authorLabelInput_.decorate(goog.dom.getElement('author-input'));
+  this.authorLabelInput_.decorate(authorInputEl);
   this.commentLabelInput_ = new goog.ui.LabelInput;
   this.commentLabelInput_.decorate(goog.dom.getElement('comment-input'));
   //this.logger.info("Listeners after = " + goog.events.getTotalListenerCount());
@@ -104,6 +113,13 @@ simplemb.PostController.prototype.init_ = function() {
       goog.dom.getElement('comment-input'));
   this.eventHandler_.listen(this.keyHandler_,
       goog.events.KeyHandler.EventType.KEY, this.onKeyEvent_);
+
+  // Fill the author field if known.
+  var nameInLocalStorage = window.localStorage.getItem(
+      simplemb.PostController.KEY_AUTHOR_NAME);
+  if (nameInLocalStorage) {
+    authorInputEl.value = nameInLocalStorage;
+  }
 };
 
 
@@ -139,6 +155,11 @@ simplemb.PostController.prototype.submitMessage_ = function() {
       {
         'Content-Type': 'application/json'
       });
+  
+  var currentName = this.authorLabelInput_.getElement().value;
+  window.localStorage.setItem(
+      simplemb.PostController.KEY_AUTHOR_NAME,
+      currentName);
 };
 
 
@@ -157,7 +178,7 @@ simplemb.PostController.prototype.handleXhrResponse_ = function(e) {
   }
   var messageResponse = xhr.getResponseJson();
 
-  // TODO: Check the return message.
+  // TODO: Could check the return message.
   
   // Fire an event that a new message has been successfully added.
   this.dispatchEvent(

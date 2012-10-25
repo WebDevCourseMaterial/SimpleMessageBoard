@@ -69,8 +69,8 @@ simplemb.MessageListController.prototype.init_ = function() {
  * request from the AppEngine server for messages.
  */
 simplemb.MessageListController.prototype.fetchMessages = function() {
-  //var requestUri = new goog.Uri('/api');
-  var requestUri = new goog.Uri('http://rose-simple-message-board.appspot.com/api');
+  var requestUri = new goog.Uri('/api');
+  //var requestUri = new goog.Uri('http://rose-simple-message-board.appspot.com/api');
   // Location where you could add parameters.
   goog.net.XhrIo.send(
       requestUri.toString(),
@@ -88,8 +88,7 @@ simplemb.Message;
 
 /**
  * Message from the backend.  Note this typedef is for documentation.
- * @typedef {{
- *   'messages': Array.<simplemb.Message>}}
+ * @typedef {{'messages': Array.<simplemb.Message>}}
  */
 simplemb.MessageResponse;
 
@@ -123,7 +122,6 @@ simplemb.MessageListController.prototype.handleMessagesResponse_ =
  */
 simplemb.MessageListController.prototype.renderUiForMessages_ =
     function(messages) {
-  // TODO: Add DOM as children for this.container_
   var messageEls = goog.dom.getElementsByClass('message');
   var nameEls = window.document.querySelectorAll('.author h4');
   var commentEls = window.document.querySelectorAll('.comment p');

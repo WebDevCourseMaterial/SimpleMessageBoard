@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -41,14 +42,29 @@ public class MainActivity extends Activity {
 		Button submitButton = (Button) findViewById(R.id.submit_button);
 		submitButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				String authorText = mAuthorEditText.getText().toString();
-				String commentText = mCommentEditText.getText().toString();
-				Message newMessage = new Message(authorText, commentText);
-				new PostMessageTask().execute(newMessage);
-				mAuthorEditText.setText("");
-				mCommentEditText.setText("");
+				postMessage();
 			}
 		});
+		
+		mCommentEditText.setOnKeyListener(new View.OnKeyListener() {			
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				if (keyCode == KeyEvent.KEYCODE_ENTER) {
+					if (event.getAction() == KeyEvent.ACTION_DOWN) {
+						postMessage();						
+					}
+					return true;
+				}
+				return false;
+			}
+		});
+	}
+	
+	private void postMessage() {
+		String authorText = mAuthorEditText.getText().toString();
+		String commentText = mCommentEditText.getText().toString();
+		Message newMessage = new Message(authorText, commentText);
+		new PostMessageTask().execute(newMessage);
+		mCommentEditText.setText("");
 	}
 	
 	@Override
@@ -70,12 +86,11 @@ public class MainActivity extends Activity {
 			try {
 				JsonNetworkAdapter jsonNetworkAdapter = new JsonNetworkAdapter();
 				JSONObject responseJson = jsonNetworkAdapter.getJsonData(URL);
-				JSONArray messagesJson = responseJson.getJSONArray("messages");
+				JSONArray messagesJsonArray = responseJson.getJSONArray("messages");
 				// Create an ArrayList from the JSONArray.
-				for (int i = 0; i < messagesJson.length(); i++) {
-					JSONObject message = messagesJson.getJSONObject(i);
-					messagesList.add(new Message(message.getString("author"),
-							message.getString("comment")));
+				for (int i = 0; i < messagesJsonArray.length(); i++) {
+					messagesList.add(new Message(
+							messagesJsonArray.getJSONObject(i)));
 				}
 			} catch (JSONException e) {
 				Log.e(MainActivity.TAG, "Error in JSON: " + e.getMessage());

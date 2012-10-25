@@ -63,8 +63,23 @@
       </extraflags>
     </closure-builder>
   </target>
+  
+  
+  <target name="appengine-replicate"
+      description="Copy files into the appengine folder for production">
+    <copy todir="../AppEnginePlusWebClient_Solution/rose-simple-message-board">
+      <fileset dir=".">
+        <include name="images/**" />
+        <include name="stylesheets/**" />
+        </fileset>
+    </copy>
+    <copy tofile="../AppEnginePlusWebClient_Solution/rose-simple-message-board/js/simple_message_board.js"
+      file="${build.dir}/production/js/simple_message_board.js" />
+    <copy tofile="../AppEnginePlusWebClient_Solution/rose-simple-message-board/simple_message_board.html"
+      file="${build.dir}/production/simple_message_board.html" />
+  </target>
 	
-  <target name="build" depends="clean, gen_js_deps, replicate, compile" />
+  <target name="build" depends="clean, gen_js_deps, replicate, compile, appengine-replicate" />
 
 
 
