@@ -1,0 +1,156 @@
+
+.message:nth-child(10n) > .author,
+.message:nth-child(10n + 6) > .comment {
+  background-color:rgb(255,255,0);
+}
+
+.message:nth-child(10n + 1) > .author,
+.message:nth-child(10n + 7) > .comment {
+  background-color:rgb(152,253,178);
+}
+
+.message:nth-child(10n + 2) > .author,
+.message:nth-child(10n + 8) > .comment {
+  background-color:rgb(255,115,255);
+}
+
+.message:nth-child(10n + 3) > .author,
+.message:nth-child(10n + 9) > .comment {
+  background-color:rgb(115,249,249);
+}
+
+.message:nth-child(10n + 4) > .author,
+.message:nth-child(10n) > .comment {
+  background-color:rgb(199, 72, 72);
+}
+
+.message:nth-child(10n + 5) > .author,
+.message:nth-child(10n + 1) > .comment {
+  background-color:rgb(226, 226, 20);
+}
+
+.message:nth-child(10n + 6) > .author,
+.message:nth-child(10n + 2) > .comment {
+  background-color:rgb(153,204,255);
+}
+
+.message:nth-child(10n + 7) > .author,
+.message:nth-child(10n + 3) > .comment {
+  background-color:rgb(255,77,77);
+}
+
+.message:nth-child(10n + 8) > .author,
+.message:nth-child(10n + 4) > .comment {
+  background-color:rgb(0,255,255);
+}
+
+.message:nth-child(10n + 9) > .author,
+.message:nth-child(10n + 5) > .comment {
+  background-color:rgb(147,255,38);
+}
+
+.message:nth-child(10n + 5) > .author {
+    -moz-transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+}
+.message:nth-child(10n + 3) > .author {
+    -moz-transform: rotate(-4deg);
+    -webkit-transform: rotate(-4deg);
+    transform: rotate(-4deg);
+}
+.message:nth-child(10n + 8) > .author {
+    -moz-transform: rotate(-3deg);
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+}
+.message:nth-child(10n + 4) > .author {
+    -moz-transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+}
+
+.message:nth-child(10n + 1) > .author {
+    -moz-transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+}
+.message:nth-child(10n + 6) > .author {
+    -moz-transform: rotate(1deg);
+    -webkit-transform: rotate(1deg);
+    transform: rotate(1deg);
+}
+.message:nth-child(10n + 2) > .author {
+    -moz-transform: rotate(2deg);
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+}
+.message:nth-child(10n + 7) > .author {
+    -moz-transform: rotate(3deg);
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+}
+
+.message:nth-child(10n + 0) > .author {
+    -moz-transform: rotate(4deg);
+    -webkit-transform: rotate(4deg);
+    transform: rotate(4deg);
+}
+.message:nth-child(10n + 9) > .author {
+    -moz-transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+}
+
+.message:nth-child(10n + 5) > .comment {
+    -moz-transform: rotate(-1.5deg);
+    -webkit-transform: rotate(-1.5deg);
+    transform: rotate(-1.5deg);
+}
+.message:nth-child(10n + 1) > .comment {
+    -moz-transform: rotate(-1.2deg);
+    -webkit-transform: rotate(-1.2deg);
+    transform: rotate(-1.2deg);
+}
+.message:nth-child(10n + 9) > .comment {
+    -moz-transform: rotate(-0.9deg);
+    -webkit-transform: rotate(-0.9deg);
+    transform: rotate(-0.9deg);
+}
+.message:nth-child(10n + 3) > .comment {
+    -moz-transform: rotate(-0.6deg);
+    -webkit-transform: rotate(-0.6deg);
+    transform: rotate(-0.6deg);
+}
+
+.message:nth-child(10n + 2) > .comment {
+    -moz-transform: rotate(-0.3deg);
+    -webkit-transform: rotate(-0.3deg);
+    transform: rotate(-0.3deg);
+}
+.message:nth-child(10n + 7) > .comment {
+    -moz-transform: rotate(0.3deg);
+    -webkit-transform: rotate(0.3deg);
+    transform: rotate(0.3deg);
+}
+.message:nth-child(10n + 4) > .comment {
+    -moz-transform: rotate(0.6deg);
+    -webkit-transform: rotate(0.6deg);
+    transform: rotate(0.6deg);
+}
+.message:nth-child(10n + 8) > .comment {
+    -moz-transform: rotate(0.9deg);
+    -webkit-transform: rotate(0.9deg);
+    transform: rotate(0.9deg);
+}
+
+.message:nth-child(10n + 0) > .comment {
+    -moz-transform: rotate(1.2deg);
+    -webkit-transform: rotate(1.2deg);
+    transform: rotate(1.2deg);
+}
+.message:nth-child(10n + 6) > .comment {
+    -moz-transform: rotate(1.5deg);
+    -webkit-transform: rotate(1.5deg);
+    transform: rotate(1.5deg);
+}
