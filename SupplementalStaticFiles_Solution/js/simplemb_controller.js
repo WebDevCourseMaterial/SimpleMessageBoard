@@ -91,7 +91,7 @@ simplemb.SimpleMBController.prototype.init_ = function() {
 	    goog.events.EventType.KEYUP, this.onKeyEvent_);
 	
 	// Fill the author field if known.
-  var nameInLocalStorage = window.localStorage.getItem(
+  var nameInLocalStorage = goog.global.localStorage.getItem(
       simplemb.SimpleMBController.KEY_AUTHOR_NAME);
   if (nameInLocalStorage) {
     authorInputEl.value = nameInLocalStorage;
@@ -107,7 +107,7 @@ simplemb.SimpleMBController.prototype.init_ = function() {
  */
 simplemb.SimpleMBController.prototype.onKeyEvent_ = function(e) {
   var currentName = this.authorLabelInput_.getElement().value;
-  window.localStorage.setItem(
+  goog.global.localStorage.setItem(
       simplemb.SimpleMBController.KEY_AUTHOR_NAME,
       currentName);
   this.logger.info("Saved = " + currentName);

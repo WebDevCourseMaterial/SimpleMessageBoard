@@ -14,7 +14,7 @@
 
   <!-- Path to this build file from base.js (used by depswriter.py) -->
   <property name="fromBase.dir"
-      value="../../../../gitrepos/SimpleMessageBoard/WebClient_Solution" />
+      value="../../../../gitrepos/SimpleMessageBoard/WebClient_Start" />
 	
   <!-- Set to false for optimized production compiling.
 	   Set to true for un-optimized whitespace only compiling for debugging work. -->
@@ -67,15 +67,14 @@
   
   <target name="appengine-replicate"
       description="Copy files into the appengine folder for production">
-    <copy todir="../AppEnginePlusWebClient_Solution/rose-simple-message-board">
-      <fileset dir=".">
+    <copy todir="../AppEngine_Start/username-simple-message-board">
+      <fileset dir="${build.dir}/production">
+        <include name="js/**" />
         <include name="images/**" />
         <include name="stylesheets/**" />
         </fileset>
     </copy>
-    <copy tofile="../AppEnginePlusWebClient_Solution/rose-simple-message-board/js/simple_message_board.js"
-      file="${build.dir}/production/js/simple_message_board.js" />
-    <copy tofile="../AppEnginePlusWebClient_Solution/rose-simple-message-board/simple_message_board.html"
+    <copy tofile="../AppEngine_Start/username-simple-message-board/simple_message_board.html"
       file="${build.dir}/production/simple_message_board.html" />
   </target>
 	
